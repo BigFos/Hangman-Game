@@ -15,24 +15,46 @@ console.log(chosenWord);
 
 //creates underscores
 var wordLength = chosenWord.length;
-var underscores = "";
-for(i=0; i<wordLength; i++) {
-    underscores = underscores + "_ "
+var userGuesses = [];
+var guessWord = [];
+for (i = 0; i < wordLength; i++) {
+    guessWord[i] = "_";
 }
 //Prints underscores value to console.log
-console.log(underscores);
-
+console.log(guessWord);
 //Displays underscores output to HTML
-document.getElementById("underscores").innerHTML = underscores;
+document.getElementById("guessWord").innerHTML = guessWord;
 
+//Defining remainingLetters
+var remainingLetters = chosenWord.length;
+//Gets user input
 var userText = document.getElementById("user-text");
-      // Next, we give JavaScript a function to execute when onkeyup event fires.
-      document.onkeyup = function(event) {
-        userText.textContent = event.key;
-        var userInput = event.key
-        console.log(userInput)
-      };
+// Next, we give JavaScript a function to execute when onkeyup event fires.
+document.onkeyup = function(event) {
+    userText.textContent = event.key;
+    var userInput = event.key;
+    console.log(userInput);
+    userGuesses.push(userInput);
+    for (var j = 0; j < chosenWord.length; j++) {
+        if (chosenWord[j] === userInput) {
+            guessWord[j] = userInput;
+            remainingLetters--;
+        }
+    }
+};
+console.log(userGuesses);
+
 
 // log userInput from onkeyup function
-      console.log(document.onkeyup.userInput)
+console.log(document.onkeyup.userInput)
+    //fill in with the chosen letter
+
+// log wins
+var winsCounter = 0
+
+if (userInput === "f"){
+	winsCounter++;
+};
+
+document.getElementById("winsCounter").innerHTML = winsCounter;
 
