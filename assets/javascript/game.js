@@ -41,8 +41,17 @@ document.onkeyup = function(event) {
             remainingLetters--;
         }
     }
+    // log wins
+    var winsCounter = 0
+
+    if (chosenWord === guessWord) {
+        winsCounter++;
+    };
+
+    document.getElementById("winsCounter").innerHTML = winsCounter;
 };
 console.log(userGuesses);
+document.getElementById("userGuesses").innerHTML = userGuesses;
 
 
 // log userInput from onkeyup function
@@ -50,11 +59,10 @@ console.log(document.onkeyup.userInput)
     //fill in with the chosen letter
 
 // log wins
-var winsCounter = 0
+//var winsCounter = 0
 
-if (userInput === "f"){
-	winsCounter++;
-};
+//if (userInput === "f"){
+//winsCounter++;
+//};
 
-document.getElementById("winsCounter").innerHTML = winsCounter;
-
+//document.getElementById("winsCounter").innerHTML = winsCounter;
