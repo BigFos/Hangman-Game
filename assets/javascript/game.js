@@ -50,10 +50,15 @@ document.onkeyup = function(event) {
         };
     }
     document.getElementById("guessWord").innerHTML = guessWord;
+    var guessesRemaining = 13;
+    document.getElementById("guessRemain").innerHTML = guessesRemaining;
+    for (guessesRemaining > 0) {
+        guessesRemaining--;
 
-    //checking if letter has already been guessed and filling it in
-    if (userInput !== userGuesses.indexOf(userInput)) {
-        document.getElementById("userGuesses").innerHTML = userGuesses.toString();
+        //checking if letter has already been guessed and filling it in
+        if (userInput != userGuesses.indexOf(userInput)) {
+            document.getElementById("userGuesses").innerHTML = userGuesses.toString();
+        }
     }
 
     document.getElementById("winsCounter").innerHTML = winsCounter;
